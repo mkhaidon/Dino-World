@@ -2,12 +2,27 @@
   "name": "Animal Puzzle Poppers",
   "short_name": "Puzzle Poppers",
   "description": "A calm toddler animal puzzle game.",
+  "id": "/Dino-World/",
   "start_url": "./",
   "scope": "./",
+  "lang": "en",
+  "dir": "ltr",
   "display": "fullscreen",
+  "display_override": [
+    "fullscreen",
+    "standalone",
+    "minimal-ui"
+  ],
   "orientation": "landscape",
   "background_color": "#a7e4ff",
   "theme_color": "#a7e4ff",
+  "categories": [
+    "games",
+    "kids",
+    "education"
+  ],
+  "iarc_rating_id": "e84b072d-71f4-4c4c-90e4-5f4f31f33c91",
+  "scope_extensions": [],
   "icons": [
     {
       "src": "./assets/icon.svg",
