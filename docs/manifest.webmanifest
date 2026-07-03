@@ -1,0 +1,19 @@
+{
+  "name": "Animal Puzzle Poppers",
+  "short_name": "Puzzle Poppers",
+  "description": "A calm toddler animal puzzle game.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#a7e4ff",
+  "theme_color": "#a7e4ff",
+  "icons": [
+    {
+      "src": "./assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
