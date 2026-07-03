@@ -1,7 +1,7 @@
 {
-  "name": "Animal Puzzle Poppers",
-  "short_name": "Puzzle Poppers",
-  "description": "A calm toddler animal puzzle game.",
+  "name": "Dino World Puzzle",
+  "short_name": "Dino Puzzle",
+  "description": "A cheerful dinosaur puzzle game for kids.",
   "id": "/Dino-World/",
   "start_url": "./",
   "scope": "./",
@@ -14,8 +14,8 @@
     "minimal-ui"
   ],
   "orientation": "landscape",
-  "background_color": "#a7e4ff",
-  "theme_color": "#a7e4ff",
+  "background_color": "#91dcff",
+  "theme_color": "#91dcff",
   "categories": [
     "games",
     "kids",
