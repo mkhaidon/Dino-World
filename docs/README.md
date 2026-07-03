@@ -19,9 +19,9 @@ This folder is a vanilla HTML/CSS/JavaScript game. No backend, no CDN, no extern
 
 Open `index.html` locally or visit the GitHub Pages URL. Test:
 
-- Play button and level select.
+- Play button starts the saved dinosaur progression.
 - Drag pieces with mouse or touch.
-- Complete at least two dinosaur puzzles.
+- Complete at least two dinosaur puzzles with the Next button.
 - Celebration star/balloon taps.
 - Sound On/Off persistence.
 - Reset Progress.
