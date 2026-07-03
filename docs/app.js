@@ -38,12 +38,12 @@
       parts: ["tail", "body", "legBack", "legFront", "plates", "head"]
     },
     {
-      id: "brontosaurus",
-      name: "Brontosaurus",
+      id: "brachiosaurus",
+      name: "Brachiosaurus",
       color: "#9dd36f",
       belly: "#fff0a8",
       accent: "#6fae54",
-      phrase: "Great job! You built a Brontosaurus!",
+      phrase: "Great job! You built a Brachiosaurus!",
       parts: ["tail", "body", "legBack", "legFront", "neck", "head"]
     },
     {
@@ -80,7 +80,7 @@
       belly: "#ffe1ee",
       accent: "#f0609a",
       phrase: "Great job! You built a Baby Dino!",
-      parts: ["tail", "body", "legBack", "legFront", "spikes", "head"]
+      parts: ["egg", "tail", "body", "legBack", "legFront", "head"]
     }
   ];
 
@@ -167,18 +167,19 @@
   }
 
   function handle(action) {
-    if (action === "play") showLevelSelect();
+    if (action === "play") showPuzzle(state.level);
     if (action === "home") showHome();
     if (action === "sound") {
       state.sound = !state.sound;
       save();
-      refreshOverlay();
+      if (state.scene === "home") showHome();
+      else refreshOverlay();
     }
     if (action === "reset") {
       state.level = 0;
       state.completed = [];
       save();
-      showLevelSelect();
+      showHome();
     }
     if (action === "next") nextLevel();
     if (action === "again") {
@@ -187,7 +188,6 @@
       save();
       showPuzzle(0);
     }
-    if (action.startsWith("level-")) showPuzzle(Number(action.slice(6)));
   }
 
   function showHome() {
@@ -201,29 +201,10 @@
         <div class="button-row">
           <button class="big-button" data-action="play">Play</button>
         </div>
+        <p class="progress-note">Next dino: ${dinos[state.level].name} · ${state.completed.length}/${dinos.length} built</p>
         <div class="button-row">
           <button class="small-button" data-action="sound">${state.sound ? "Sound On" : "Sound Off"}</button>
           <button class="small-button" data-action="reset">Reset</button>
-        </div>
-      </section>
-    `);
-  }
-
-  function showLevelSelect() {
-    state.scene = "levels";
-    uiHtml(`
-      <div class="top-left"><button class="icon-button" data-action="home">⌂</button></div>
-      <div class="top-right"><button class="small-button" data-action="sound">${state.sound ? "Sound On" : "Sound Off"}</button></div>
-      <section class="level-panel">
-        <h2>Choose a Dino</h2>
-        <div class="level-grid">
-          ${dinos.map((dino, i) => `
-            <button class="level-card" data-action="level-${i}">
-              <span class="mini-dino" style="background:${dino.color}"></span>
-              <strong>${dino.name}</strong>
-              <small>${state.completed.includes(dino.id) ? "Built!" : `${dino.parts.length} pieces`}</small>
-            </button>
-          `).join("")}
         </div>
       </section>
     `);
@@ -319,7 +300,6 @@
     rotateHint.hidden = innerWidth >= innerHeight || innerWidth > 760;
     drawPrehistoric();
     if (state.scene === "home") drawHomeDinos();
-    if (state.scene === "levels") drawLevelBackdrop();
     if (state.scene === "puzzle") drawPuzzleScene();
     if (state.scene === "celebrate") drawCelebrateScene();
     if (state.scene === "final") drawFinalScene();
@@ -386,10 +366,6 @@
     drawFullDino(dinos[2], innerWidth * 0.84, innerHeight * 0.68, Math.min(innerWidth, innerHeight) / 760, false);
   }
 
-  function drawLevelBackdrop() {
-    text("Dino World", innerWidth * 0.5, innerHeight * 0.12, Math.min(innerWidth, innerHeight) * 0.07, "#24566a");
-  }
-
   function drawFullDino(dino, x, y, scale, ghost) {
     const oldAlpha = ctx.globalAlpha;
     if (ghost) ctx.globalAlpha *= 0.65;
@@ -428,7 +404,7 @@
       eye(34, -18);
       smile(42, 18);
       if (dino.id === "trex" || dino.id === "velociraptor") teeth();
-      if (dino.id === "brontosaurus") {
+      if (dino.id === "brachiosaurus") {
         ctx.fillStyle = accent;
         circle(82, -40, 12);
       }
@@ -454,6 +430,22 @@
     if (part === "spikes") {
       ctx.fillStyle = accent;
       for (let i = 0; i < 4; i++) path([[-90 + i * 48, -65], [-68 + i * 48, -104], [-45 + i * 48, -65]]);
+    }
+    if (part === "egg") {
+      ctx.fillStyle = "#fff6d7";
+      blob([[-72, 64], [-88, -8], [-48, -82], [18, -96], [74, -48], [88, 28], [42, 88], [-24, 94]]);
+      ctx.fillStyle = "#ffd6e7";
+      circle(-28, -34, 12);
+      circle(34, -10, 10);
+      ctx.strokeStyle = "#e7b87b";
+      ctx.lineWidth = 7;
+      ctx.beginPath();
+      ctx.moveTo(-58, 8);
+      ctx.lineTo(-30, -8);
+      ctx.lineTo(-2, 12);
+      ctx.lineTo(26, -6);
+      ctx.lineTo(58, 14);
+      ctx.stroke();
     }
     if (part === "neck") {
       ctx.fillStyle = color;
@@ -490,11 +482,15 @@
     const generic = {
       body: [0, 0], tail: [-170, 26], clubTail: [-170, 26], head: [168, -55],
       legBack: [-56, 78], legFront: [48, 78], arm: [88, 8],
-      frill: [123, -72], plates: [0, -16], armor: [0, -8], spikes: [0, -18],
+      frill: [123, -72], plates: [0, -16], armor: [0, -8], spikes: [0, -18], egg: [-18, 18],
       neck: [126, -82], crest: [168, -88], wingLeft: [-78, -20], wingRight: [78, -20]
     };
     if (dino.id === "pterodactyl") {
       generic.body = [0, 10]; generic.head = [92, -38]; generic.legFront = [18, 62]; generic.crest = [98, -56];
+    }
+    if (dino.id === "baby") {
+      generic.egg = [-42, 42]; generic.body = [12, 0]; generic.head = [136, -52]; generic.tail = [-128, 24];
+      generic.legBack = [-38, 74]; generic.legFront = [52, 74];
     }
     const result = {};
     Object.entries(generic).forEach(([key, value]) => {
