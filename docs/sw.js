@@ -1,11 +1,12 @@
-const CACHE_NAME = "animal-puzzle-poppers-v2";
+const CACHE_NAME = "dino-world-puzzle-v1";
 const ASSETS = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
   "./manifest.webmanifest",
-  "./assets/icon.svg"
+  "./assets/icon.svg",
+  "./assets/dino-logo.svg"
 ];
 
 self.addEventListener("install", event => {
