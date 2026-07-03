@@ -1,4 +1,4 @@
-const CACHE_NAME = "dino-world-puzzle-v1";
+const CACHE_NAME = "dino-world-puzzle-v2";
 const ASSETS = [
   "./",
   "./index.html",
