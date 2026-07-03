@@ -12,7 +12,7 @@ The `docs/` folder contains a polished vanilla HTML/CSS/JavaScript dinosaur puzz
 
 - Cheerful prehistoric animated background.
 - Home screen with logo, Play, Sound, and Reset controls.
-- Eight dinosaur puzzles: T-Rex, Triceratops, Stegosaurus, Brontosaurus, Pterodactyl, Ankylosaurus, Velociraptor, and Baby Dino.
+- Eight dinosaur puzzles: T-Rex, Triceratops, Stegosaurus, Brachiosaurus, Pterodactyl, Ankylosaurus, Velociraptor, and Baby Dino.
 - Vector dinosaur artwork drawn locally, with recognizable body parts.
 - Drag/drop snapping, wrong-drop return, target glow, sparkle feedback, celebration scene, and final completion scene.
 - PWA manifest and service worker for installability.
@@ -39,7 +39,7 @@ Open:
 Check:
 
 - Home screen title says `Dino World Puzzle`.
-- Level select shows 8 dinos.
+- Play starts the saved dinosaur puzzle.
 - Drag puzzle pieces into the silhouette.
 - Complete at least two dinosaurs.
 - Sound toggle persists.
