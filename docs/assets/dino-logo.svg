@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420">
+  <rect width="640" height="420" rx="60" fill="#fff7cf"/>
+  <circle cx="532" cy="80" r="42" fill="#fff17a"/>
+  <path d="M38 330 C110 270 214 262 320 282 C414 300 500 310 602 268 L602 420 L38 420 Z" fill="#73d87a"/>
+  <path d="M102 278 C82 218 110 166 174 152 C232 140 300 164 330 218 C366 204 436 208 472 254 C506 298 474 356 416 360 L180 360 C142 360 116 328 102 278Z" fill="#6fd17f"/>
+  <path d="M328 214 C358 160 412 128 458 144 C506 160 520 220 484 258 C450 294 382 284 328 214Z" fill="#6fd17f"/>
+  <path d="M112 280 C58 272 34 236 32 198 C76 232 118 248 160 256Z" fill="#3c9b63"/>
+  <ellipse cx="258" cy="292" rx="84" ry="42" fill="#ffe49a"/>
+  <path d="M154 150 L184 92 L214 154 M236 164 L274 98 L310 174" fill="#ff8fa3"/>
+  <circle cx="436" cy="194" r="15" fill="#24343b"/>
+  <circle cx="442" cy="188" r="5" fill="#fff"/>
+  <path d="M420 230 Q446 254 474 228" fill="none" stroke="#24343b" stroke-width="14" stroke-linecap="round"/>
+  <path d="M184 350 L168 402 M302 354 L288 402" stroke="#3c9b63" stroke-width="38" stroke-linecap="round"/>
+  <text x="320" y="72" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="900" fill="#24566a">Dino World</text>
+</svg>
